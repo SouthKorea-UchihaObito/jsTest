@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트 보강</title>
+    <style>
+        * {padding:0;margin:0;}
+        button {border:none;outline:none;cursor:pointer;}
+        .menu {display:flex;align-items:center;justify-content:space-evenly;width:100vw;height:70vw;background-color:green;overflow:hidden;}
+        .menu .menuBtn {width:100px;height:50px;border-radius:10px;box-sizing:border-box;transition:all 1s;}
+        .menuBtn1 {background-color:red;}
+        .menuBtn2 {background-color:orange;}
+        .menuBtn3 {background-color:yellow;}
+        .menuBtn:hover {opacity:0.8;}
+
+        .menuBtn span {font-size:12px;font-weight:bold;}
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <button class="menuBtn menuBtn1">
+            <span>버튼1</span>
+        </button>
+        <button class="menuBtn menuBtn2">
+            <span>버튼2</span>
+        </button>
+        <button class="menuBtn menuBtn3">
+            <span>버튼3</span>
+        </button>
+    </div>
+    <script>
+        (function(){
+            
+            const menu = document.querySelector('.menu');
+            const btns = document.querySelectorAll('.menuBtn');
+
+            console.log(btns);
+
+            function clickBtnHendler(e){
+                if(e.target.classList.contains('menuBtn')){
+                    menu.removeChild(e.target);
+                }
+                
+            }
+
+            // 부모에게 이벤트 리스너 장착
+            menu.addEventListener('click', clickBtnHendler);
+            
+        })()
+    </script>
+</body>
+</html>
